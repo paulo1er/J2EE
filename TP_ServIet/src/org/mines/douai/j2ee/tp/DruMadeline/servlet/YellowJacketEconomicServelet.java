@@ -1,6 +1,7 @@
-package helloWorld;
+package org.mines.douai.j2ee.tp.DruMadeline.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,14 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HelloWorldServlet
  */
-@WebServlet("/HelloWorld")
-public class HelloWorldServlet extends HttpServlet {
+@WebServlet("/YellowJacketEconomic")
+public class YellowJacketEconomicServelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public HelloWorldServlet() {
+	public YellowJacketEconomicServelet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -29,11 +30,25 @@ public class HelloWorldServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String clientName = request.getParameter("name");
 		response.setContentType("text/html"); // Type MIME
 		java.io.PrintWriter out = response.getWriter();
 		out.println("<html><body>");
-		out.println("Hello World " + clientName + " !");
+		out.println("<h1>Nombre de gilets jaunes en Live !!</h1>");
+
+		String pays = request.getParameter("pays");
+		if ("France".equals(pays) || "Allemagne".equals(pays) || "Pologne".equals(pays)) {
+			out.println("<h2>" + pays + "</h2>");
+			out.println("<img src=\"/TP_ServIet/GraphicYellowJacket?pays=" + pays + "\">");
+		}
+		else{
+			out.println("<h2>France</h2>");
+			out.println("<img src=\"/TP_ServIet/GraphicYellowJacket?pays=France\">");
+			out.println("<h2>Allemagne</h2>");
+			out.println("<img src=\"/TP_ServIet/GraphicYellowJacket?pays=Allemagne\">");
+			out.println("<h2>Plologne</h2>");
+			out.println("<img src=\"/TP_ServIet/GraphicYellowJacket?pays=Plologne\">");
+		}
+
 		out.println("</body></html>");
 	}
 
@@ -43,8 +58,6 @@ public class HelloWorldServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
 
+	}
 }

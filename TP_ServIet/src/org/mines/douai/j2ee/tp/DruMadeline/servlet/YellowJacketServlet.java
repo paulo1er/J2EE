@@ -59,11 +59,18 @@ public class YellowJacketServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String pays = request.getParameter("pays");
+		String refresh = request.getParameter("refresh");
+		if("true".equals(refresh)){
+			dic.put("France", (int)(500 + Math.random()*2500));
+			dic.put("Allemagne", (int)(Math.random()*800));
+			dic.put("Pologne", (int)(10 + Math.random()*100));
+		}
 		response.setContentType("text/html"); // Type MIME
 		java.io.PrintWriter out = response.getWriter();
 		out.println("<html><body>");
 		out.println("<h1>Nombre de gilets jaunes en Live !!</h1>");
 		out.println("<p>"+pays+" : "+dic.get(pays)+"</p>");
+		out.println("<img src=\"/TP_ServIet/GraphicYellowJacket?pays="+pays+"\">");
 		
 		this.menuD(request, response);
 		
@@ -79,9 +86,8 @@ public class YellowJacketServlet extends HttpServlet {
 		out.println("  <option value='Allemagne'>Allemagne</option>");
 		out.println("  <option value='Pologne'>Pologne</option>");
 		out.println("</select>");
+		out.println("<input type='checkbox' name='refresh' value='true'>refresh<br>");
 		out.println("<input type='submit'/>");
 		out.println("</form>");
-		
 	}
-
 }
