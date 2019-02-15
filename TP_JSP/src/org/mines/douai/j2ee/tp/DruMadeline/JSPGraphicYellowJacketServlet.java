@@ -1,8 +1,9 @@
-package org.mines.douai.j2ee.tp.DruMadeline.servlet;
+package org.mines.douai.j2ee.tp.DruMadeline;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,7 +22,7 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
  * Servlet implementation class GraphicYellowJacketServlet
  */
 @WebServlet("/GraphicYellowJacket")
-public class GraphicYellowJacketServlet extends HttpServlet {
+public class JSPGraphicYellowJacketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	Integer[] france = {random("France"), random("France"), random("France"), random("France"), random("France"), random("France"), random("France"), random("France"), random("France"), random("France"), random("France"), random("France")};
@@ -37,7 +38,7 @@ public class GraphicYellowJacketServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public GraphicYellowJacketServlet() {
+	public JSPGraphicYellowJacketServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
