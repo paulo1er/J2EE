@@ -3,11 +3,11 @@ package org.mines.douai.j2ee.tp.DruMadeline;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import java.awt.geom.Ellipse2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 
+import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 /**
  * Servlet implementation class GraphicYellowJacketServlet
@@ -90,10 +88,9 @@ public class JSPGraphicYellowJacketServlet extends HttpServlet {
 		g2d.drawString(Integer.toString(max/2),0,110); 
 		g2d.drawString(Integer.toString(max/4),0,160); 
 		g2d.dispose();
-		
+
 	    ServletOutputStream outputStream = response.getOutputStream();
-	    JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(outputStream);
-	    encoder.encode(bufferedImage);
+	    ImageIO.write(bufferedImage, "jpeg", outputStream);
 	}
 
 	/**

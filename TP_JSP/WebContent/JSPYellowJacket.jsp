@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>JSPServlet</title>
 </head>
 <body>
-	<h2>Hello JSP</h2>
+	<h1>Nombre de gilets jaunes en Live !!</h1>
 	<p><%=request.getParameter("pays")%>
 		:
 		<%=request.getParameter("nb")%></p>
@@ -20,5 +20,6 @@
 		</select> <input type='checkbox' name='refresh' value='true'>refresh<br>
 		<input type='submit' />
 	</form>
+	<p>DRU Guillaume ; MADELINE Paul </p>
 </body>
 </html>
