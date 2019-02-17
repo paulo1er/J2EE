@@ -38,7 +38,6 @@ public class JSPYellowJacketServlet extends HttpServlet {
 			throws ServletException, IOException {
 	    
 		response.setContentType("text/html"); // Type MIME
-		java.io.PrintWriter out = response.getWriter();
 		String pays = request.getParameter("pays");
 		if (!"France".equals(pays) && !"Allemagne".equals(pays) && !"Pologne".equals(pays)) {
 			pays = "France";
@@ -53,7 +52,6 @@ public class JSPYellowJacketServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setContentType("text/html"); // Type MIME
-		java.io.PrintWriter out = response.getWriter();
 		String pays = request.getParameter("pays");
 		if (!"France".equals(pays) && !"Allemagne".equals(pays) && !"Pologne".equals(pays)) {
 			pays = "France";
